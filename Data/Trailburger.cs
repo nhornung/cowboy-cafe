@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Author: Nick Hornung
+ * Edited by:
+ * Class Name: Trailburger.cs
+ * Purpose: A class to represent the Trailburger entree object
+ * and hold its properties of ingredients, price, and calories
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,11 +16,11 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Trail Burger entree
     /// </summary>
-    public class TrailBurger
+    public class TrailBurger : Entree
     {
         private bool bun = true;
         /// <summary>
-        /// If the burger has ketchup
+        /// If the burger uses a bun
         /// </summary>
         public bool Bun
         {
@@ -62,7 +71,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The price of the burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -73,7 +82,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -84,7 +93,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Special instructions for the preparation of the burger
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

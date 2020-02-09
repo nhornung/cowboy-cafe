@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * Author: Nick Hornung
+ * Edited by:
+ * Class Name: DakotaDoubleBurger.cs
+ * Purpose: A class to represent the Dakota Double Burger side object
+ * and hold its properties of ingredients, price, and calories
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,11 +15,11 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Dakota Double Burger entree
     /// </summary>
-    public class DakotaDoubleBurger
+    public class DakotaDoubleBurger : Entree
     {
         private bool bun = true;
         /// <summary>
-        /// If the burger has ketchup
+        /// If the burger has a bun
         /// </summary>
         public bool Bun
         {
@@ -92,7 +100,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The price of the burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -103,7 +111,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -114,7 +122,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Special instructions for the preparation of the burger
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

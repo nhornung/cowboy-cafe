@@ -1,8 +1,8 @@
 ﻿/*
  * Author: Nick Hornung
  * Edited by:
- * Class Name: ChiliCheeseFries.cs
- * Purpose: A class to represent the Chili Cheese Fries side object
+ * Class Name: PanDeCampo.cs
+ * Purpose: A class to represent the Pan De Campo side object
  * and hold its properties of ingredients, price, and calories
  */
 
@@ -13,9 +13,9 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Chili Cheese Fries side
+    /// A class representing the Pan De Campo side
     /// </summary>
-    public class ChiliCheeseFries : Side
+    public class PanDeCampo : Side
     {
         /// <summary>
         /// Gets value of the calories associated with size enum
@@ -24,14 +24,14 @@ namespace CowboyCafe.Data
         {
             get
             {
-                switch(Size)
+                switch (Size)
                 {
                     case Size.Large:
-                        return 610;
+                        return 367;
                     case Size.Medium:
-                        return 524;
+                        return 269;
                     case Size.Small:
-                        return 433;
+                        return 227;
                     default:
                         throw new NotImplementedException("Unknown Size");
                 }
@@ -39,20 +39,20 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Gets value of the price associated with size enum
+        ///  Gets value of the price associated with specific size enum
         /// </summary>
         public override double Price
         {
             get
             {
-                switch(Size)
+                switch (Size)
                 {
                     case Size.Large:
-                        return 3.99;
-                    case Size.Medium:
-                        return 2.99;
-                    case Size.Small:
                         return 1.99;
+                    case Size.Medium:
+                        return 1.79;
+                    case Size.Small:
+                        return 1.59;
                     default:
                         throw new NotImplementedException("Unknown Price");
 
