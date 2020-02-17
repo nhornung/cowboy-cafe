@@ -20,16 +20,26 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of the side
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets the price of the side
         /// </summary>
-        public abstract double Price { get; }
+        public abstract double Price
+        {
+            get;
+        }
 
         /// <summary>
         /// Gets the calories of the side
         /// </summary>
-        public abstract uint Calories { get; }
+        public abstract uint Calories
+        {
+            get;
+        }
     }
 }
