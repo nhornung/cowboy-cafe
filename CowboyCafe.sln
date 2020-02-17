@@ -12,6 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{1C5B25E2-A1F2-4DFE-B58D-2097D61DC0E4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Downloads\Documentation.png = ..\..\Downloads\Documentation.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +34,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C5B25E2-A1F2-4DFE-B58D-2097D61DC0E4} = {938FDA09-9346-4837-A3AE-EA1B3485B73F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF0ECCFA-B4C0-4862-B136-C797D24E1A41}
