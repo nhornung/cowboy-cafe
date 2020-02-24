@@ -83,5 +83,33 @@ namespace CowboyCafe.Data
             }
             
         }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Jerked Soda string</returns>
+        public override string ToString()
+        {
+            string request = Size.ToString();
+            switch (Flavor)
+            {
+                case SodaFlavor.BirchBeer:
+                    request += " Birch Beer";
+                    break;
+                case SodaFlavor.CreamSoda:
+                    request += " Cream Soda";
+                    break;
+                case SodaFlavor.OrangeSoda:
+                    request += " Orange Soda";
+                    break;
+                case SodaFlavor.RootBeer:
+                    request += " Root Beer";
+                    break;
+                case SodaFlavor.Sarsparilla:
+                    request += " Sarsparilla";
+                    break;
+            }
+            return request + " Jerked Soda";
+        }
     }
 }

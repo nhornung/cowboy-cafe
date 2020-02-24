@@ -75,5 +75,14 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Pecos Pulled Pork string</returns>
+        public override string ToString()
+        {
+            return "Pecos Pulled Pork";
+        }
     }
 }

@@ -63,5 +63,14 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Water</returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Water";
+        }
     }
 }

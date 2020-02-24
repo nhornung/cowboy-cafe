@@ -50,5 +50,14 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Rustlers Ribs string</returns>
+        public override string ToString()
+        {
+            return "Rustlers Ribs";
+        }
     }
 }

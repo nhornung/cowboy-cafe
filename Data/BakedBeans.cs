@@ -59,5 +59,14 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Baked Beans string</returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Baked Beans";
+        }
     }
 }

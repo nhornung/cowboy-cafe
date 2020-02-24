@@ -97,5 +97,21 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-     }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Cowboy Coffee string</returns>
+        public override string ToString()
+        {
+            string request = Size.ToString();
+            if (Decaf)
+            {
+                return request + "Decaf Cowboy Coffee";
+            }
+            else {
+                return request + " Cowboy Coffee";
+            }
+        }
+    }
 }

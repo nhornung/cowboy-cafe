@@ -162,5 +162,14 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Texas Triple Burger string</returns>
+        public override string ToString()
+        {
+            return "Texas Triple Burger";
+        }
     }
 }

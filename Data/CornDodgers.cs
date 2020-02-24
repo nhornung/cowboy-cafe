@@ -59,5 +59,14 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// Creates string for item to put on order list
+        /// </summary>
+        /// <returns>Corn Dodgers string</returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Corn Dodgers";
+        }
     }
 }
