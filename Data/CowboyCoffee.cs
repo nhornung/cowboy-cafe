@@ -107,7 +107,7 @@ namespace CowboyCafe.Data
             string request = Size.ToString();
             if (Decaf)
             {
-                return request + "Decaf Cowboy Coffee";
+                return request + " Decaf Cowboy Coffee";
             }
             else {
                 return request + " Cowboy Coffee";
