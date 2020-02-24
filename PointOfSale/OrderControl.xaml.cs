@@ -25,10 +25,10 @@ namespace PointOfSale
 
             AddCowpokeChiliButton.Click += AddCowpokeChiliButtonClick;
             AddRustlersRibsButton.Click += AddRustlersRibsButtonClick;
-            AddPecosPPButton.Click += AddPecosPPButtonClick;
+            AddPecosPulledPorkButton.Click += AddPecosPulledPorkButtonClick;
             AddTrailBurgerButton.Click += AddTrailBurgerButtonClick;
-            AddDakotaDoubleButton.Click += AddDakotaDoubleButtonClick;
-            AddTexasTripleButton.Click += AddTexasTripleButtonClick;
+            AddDakotaDoubleBurgerButton.Click += AddDakotaDoubleBurgerButtonClick;
+            AddTexasTripleBurgerButton.Click += AddTexasTripleBurgerButtonClick;
             AddAngryChickenButton.Click += AddAngryChickenButtonClick;
             AddChiliCheeseFriesButton.Click += AddChiliCheeseFriesButtonClick;
             AddCornDodgersButton.Click += AddCornDodgersButtonClick;
@@ -76,7 +76,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddPecosPPButtonClick(object sender, RoutedEventArgs e)
+        private void AddPecosPulledPorkButtonClick(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new PecosPulledPork());
         }
@@ -96,7 +96,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddDakotaDoubleButtonClick(object sender, RoutedEventArgs e)
+        private void AddDakotaDoubleBurgerButtonClick(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new DakotaDoubleBurger());
         }
@@ -106,7 +106,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddTexasTripleButtonClick(object sender, RoutedEventArgs e)
+        private void AddTexasTripleBurgerButtonClick(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new TexasTripleBurger());
         }

@@ -47,10 +47,10 @@
             <Button Name="AddAngryChickenButton">Angry Chicken</Button>
             <Button Name="AddCowpokeChiliButton">Cowpoke Chili</Button>
             <Button Name="AddRustlersRibsButton">Rustlers Ribs</Button>
-            <Button Name="AddPecosPPButton">Pecos Pulled Pork</Button>
+            <Button Name="AddPecosPulledPorkButton">Pecos Pulled Pork</Button>
             <Button Name="AddTrailBurgerButton">Trail Burger</Button>
-            <Button Name="AddDakotaDoubleButton">Dakota Double</Button>
-            <Button Name="AddTexasTripleButton">TexasTriple</Button>
+            <Button Name="AddDakotaDoubleBurgerButton">Dakota Double</Button>
+            <Button Name="AddTexasTripleBurgerButton">TexasTriple</Button>
         </StackPanel>
         
         <StackPanel Grid.Column="1">
