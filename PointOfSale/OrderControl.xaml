@@ -39,7 +39,6 @@
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <local:MenuItemSelectionControl/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -58,6 +57,9 @@
             </Grid>
 
         </Grid>
+        <Border x:Name="Container" Grid.Row="1">
+            <local:MenuItemSelectionControl/>
+        </Border>
         <local:OrderSummaryControl Grid.Column="1"/>
     </Grid>
 </UserControl>

@@ -18,6 +18,9 @@ namespace CowboyCafe.Data
         /// </summary>
         private List<IOrderItem> items = new List<IOrderItem>();
 
+        private List<double> priceList = new List<double>();
+
+
         /// <summary>
         /// Property to get the list of order items 
         /// </summary>
@@ -29,6 +32,15 @@ namespace CowboyCafe.Data
             }
         }
 
+        public IEnumerable<double> Price
+        {
+            get
+            {
+                return priceList.ToArray();
+            }
+        }
+
+        
         /// <summary>
         /// Property to retrieve and reset the order total price
         /// </summary>
@@ -66,9 +78,14 @@ namespace CowboyCafe.Data
         public void Add(IOrderItem item)
         {
             items.Add(item);
+            priceList.Add(item.Price);
+
+            if (item is INotifyPropertyChanged pcitem) { pcitem.PropertyChanged += OnItemChanged; } // need to do this on every item and iorder interface do not leave this if in code
+
             SubTotal += item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
         }
 
         /// <summary>
@@ -78,9 +95,23 @@ namespace CowboyCafe.Data
         public void Remove(IOrderItem item)
         {
             items.Remove(item);
+            priceList.Remove(item.Price);
+
+            if (item is INotifyPropertyChanged pcitem) { pcitem.PropertyChanged += OnItemChanged; } // need to do this on every item and iorder interface do not leave this if in code
+
             SubTotal -= item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+        }
+
+        private void OnItemChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            if(e.PropertyName == "Price")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            }
         }
     }
 }

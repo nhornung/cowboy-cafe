@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.CustomizationScreens;
+using PointOfSale.ExtensionMethods;
 
 namespace PointOfSale
 {
@@ -48,9 +50,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddAngryChickenButtonClick(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            IOrderItem item = new AngryChicken();
             if (DataContext is Order o)
             {
-                o.Add(new AngryChicken());
+                var screen = new AngryChickenCustomization();
+                screen.DataContext = item;
+                o.Add(item);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -61,9 +68,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddCowpokeChiliButtonClick(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            IOrderItem item = new CowpokeChili();
             if (DataContext is Order o)
             {
-                o.Add(new CowpokeChili());
+                var screen = new CowpokeChiliCustomization();
+                screen.DataContext = item;
+                o.Add(item);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -74,9 +86,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddRustlersRibsButtonClick(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            IOrderItem item = new RustlersRibs();
             if (DataContext is Order o)
             {
-                o.Add(new RustlersRibs());
+                var screen = new RustlersRibsCustomization();
+                screen.DataContext = item;
+                o.Add(item);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -87,9 +104,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddPecosPulledPorkButtonClick(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            IOrderItem item = new PecosPulledPork();
             if (DataContext is Order o)
             {
-                o.Add(new PecosPulledPork());
+                var screen = new PecosPulledPorkCustomization();
+                screen.DataContext = item;
+                o.Add(item);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -100,9 +122,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddTrailBurgerButtonClick(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            IOrderItem item = new TrailBurger();
             if (DataContext is Order o)
             {
-                o.Add(new TrailBurger());
+                var screen = new TrailBurgerCustomization();
+                screen.DataContext = item;
+                o.Add(item);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -113,9 +140,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddDakotaDoubleBurgerButtonClick(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            IOrderItem item = new DakotaDoubleBurger();
             if (DataContext is Order o)
             {
-                o.Add(new DakotaDoubleBurger());
+                var screen = new DakotaDoubleCustomization();
+                screen.DataContext = item;
+                o.Add(item);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -126,9 +158,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddTexasTripleBurgerButtonClick(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+            IOrderItem item = new TexasTripleBurger();
             if (DataContext is Order o)
             {
-                o.Add(new TexasTripleBurger());
+                var screen = new TexasTripleCustomization();
+                screen.DataContext = item;
+                o.Add(item);
+                orderControl.SwapScreen(screen);
             }
         }
 

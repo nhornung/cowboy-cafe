@@ -30,6 +30,8 @@ namespace PointOfSale
             ///Event listener to initialize the clicks
             CancelOrderButton.Click += CancelOrderButtonClick;
             CompleteOrderButton.Click += CompleteOrderButtonClick;
+            ItemSelectionButton.Click += ItemSelectionButtonClicked;
+
 
         }
 
@@ -53,5 +55,15 @@ namespace PointOfSale
             this.DataContext = new Order();
         }
 
+        public void ItemSelectionButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Container.Child = new MenuItemSelectionControl();
+        }
+
+        public void SwapScreen(FrameworkElement element)
+        {
+            Container.Child = element;
+        }
+        
     }
 }

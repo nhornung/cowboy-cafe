@@ -8,6 +8,7 @@
              d:DesignHeight="600" d:DesignWidth="900">
 
     <UserControl.Resources>
+        
         <Style TargetType="Button">
             <Setter Property="Height" Value="40"/>
             <Setter Property="Margin" Value="10"/>
@@ -44,9 +45,9 @@
             <Button Name="AddCowpokeChiliButton">Cowpoke Chili</Button>
             <Button Name="AddRustlersRibsButton">Rustlers Ribs</Button>
             <Button Name="AddPecosPulledPorkButton">Pecos Pulled Pork</Button>
-            <Button Name="AddTrailBurgerButton">Trail Burger</Button>
+            <Button Name="AddTrailBurgerButton">TrailBurger</Button>
             <Button Name="AddDakotaDoubleBurgerButton">Dakota Double</Button>
-            <Button Name="AddTexasTripleBurgerButton">TexasTriple</Button>
+            <Button Name="AddTexasTripleBurgerButton">Texas Triple</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
@@ -68,8 +69,6 @@
             <Button Name="AddCowboyCoffeeButton">Cowboy Coffee</Button>
             <Button Name="AddWaterButton">Water</Button>
         </StackPanel>
-
-
 
     </Grid>
 </UserControl>

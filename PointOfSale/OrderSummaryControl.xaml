@@ -5,33 +5,79 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="200">
+             d:DesignHeight="600" d:DesignWidth="450">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
             <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <TextBlock Grid.Row="0" Text="{Binding Path =OrderNumber, StringFormat={}Order {0}}" FontSize="25" Foreground="Goldenrod" FontWeight="Bold">
-            
-        </TextBlock>
-        
-        <Grid Grid.Row="1">
+
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="OrderText" Grid.Column="0" Text="Order:" FontSize="30" Foreground="Goldenrod" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock x:Name="OrderNumberText" Grid.Column="1" Text="{Binding Path=OrderNumber}" FontSize="30" Foreground="Goldenrod" VerticalAlignment="Center"/>
         </Grid>
 
-        <ListBox Name="ItemsList" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" FontSize="20" Foreground="Goldenrod" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="375"/>
+                <ColumnDefinition Width="75"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="ItemsList" Grid.Column="0" ItemsSource="{Binding Path=Items}" Background="Transparent" BorderBrush="Transparent">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="{Binding}" FontSize="17" Foreground="Goldenrod" HorizontalAlignment="Left"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="125"/>
+                                    <ColumnDefinition Width="25"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ListBox x:Name="Special" Width="100" HorizontalAlignment="Left" Grid.Column="0" ItemsSource="{Binding Path=SpecialInstructions}" Background="Transparent" Foreground="Goldenrod" BorderBrush="#8d0202">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" FontSize="10" Foreground="Goldenrod" HorizontalAlignment="Left"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox x:Name="PriceList" Grid.Column="1" Background="Transparent" Foreground="Goldenrod" ItemsSource="{Binding Path=Price}" BorderBrush="Transparent">
+                <!-- Im super confused why the dollar sign and second decimal doesn't show up on this string format, its the same one as the subtotal (c) -->
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="Goldenrod" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="25" Foreground="Goldenrod" FontWeight="Bold">Subtotal</TextBlock>
-            <TextBlock Grid.Column="1" Text="{Binding Path=SubTotal, StringFormat=c}" Foreground="Goldenrod" FontSize="25" FontWeight="Bold" HorizontalAlignment="Left"/>
+
+            <TextBlock x:Name="SubtotalText" Grid.Column="0" Text="Subtotal:" FontSize="25" Foreground="Goldenrod" FontWeight="Bold"/>
+            <TextBlock x:Name="SubtotalNumber" Grid.Column="1" Text="{Binding Path=SubTotal, StringFormat=c}" FontSize="25" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="1,0,0,0"/>
         </Grid>
     </Grid>
 </UserControl>
