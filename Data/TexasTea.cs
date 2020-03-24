@@ -9,14 +9,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// Class representing the Texas Tea drink
     /// </summary>
-    public class TexasTea : Drink
+    public class TexasTea : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets value of the price associated with each size in the enum
         /// </summary>
@@ -76,23 +82,65 @@ namespace CowboyCafe.Data
             }
         }
 
+        private Size size = Size.Small;
+        /// <summary>
+        /// Determines the size of tea from the enum and updates property
+        /// </summary>
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// If the soda has ice, false by default
+        /// </summary>
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool sweet = true;
         /// <summary>
         /// To determine if the tea is sweet, true by default
         /// </summary>
         public bool Sweet
         {
-            get;
-            set;
-        } = true;
+            get { return sweet; }
+            set
+            {
+                sweet = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        } 
 
+        private bool lemon = false;
         /// <summary>
         /// To determine if the tea has a lemon, false by default
         /// </summary>
         public bool Lemon
         {
-            get;
-            set;
-        } = false;
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// Special instructions for the preparation of the tea

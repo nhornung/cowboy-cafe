@@ -18,7 +18,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public class AngryChicken : Entree, INotifyPropertyChanged
     {
-
+        /// <summary>
+        /// Property changed event
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         private bool bread = true;

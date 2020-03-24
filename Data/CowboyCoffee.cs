@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -15,8 +16,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class to represent the Cowboy Coffee object
     /// </summary>
-    public class CowboyCoffee : Drink
+    public class CowboyCoffee : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The value of the price based on the size
         /// </summary>
@@ -59,28 +65,65 @@ namespace CowboyCafe.Data
             }
         }
 
+        private Size size = Size.Small;
+        /// <summary>
+        /// Determines the size of coffee from the enum and updates property
+        /// </summary>
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool decaf = false;
         /// <summary>
         /// Determines if the coffee is decaf
         /// </summary>
         public bool Decaf
         {
-            get;
-            set;
+            get { return decaf; }
+            set
+            {
+                decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
+        private bool cream = false;
         /// <summary>
         /// Determines if the coffee has cream
         /// </summary>
         public bool RoomForCream
         {
-            get;
-            set;
+            get { return cream; }
+            set
+            {
+                cream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cream"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
+        private bool ice = false;
         /// <summary>
         /// If the coffee is iced, false by default
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice 
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// Special instructions for the preparation of the coffee
@@ -93,7 +136,7 @@ namespace CowboyCafe.Data
 
                 if(Ice) instructions.Add("Add Ice");
                 if (RoomForCream) instructions.Add("Room for Cream");
-
+                
                 return instructions;
             }
         }

@@ -11,6 +11,13 @@
         <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="Goldenrod" TextDecorations="Underline">Dakota Double Customization!</TextBlock>
         <StackPanel Orientation="Vertical">
 
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="Goldenrod" />
+                    <Setter Property="FontSize" Value="15" />
+                </Style>
+            </StackPanel.Resources>
+            
             <CheckBox IsChecked="{Binding Path=Bun}">
                 <TextBlock Text="Bun"/>
             </CheckBox>

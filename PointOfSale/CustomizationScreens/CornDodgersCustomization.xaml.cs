@@ -15,30 +15,30 @@ using CowboyCafe.Data;
 namespace PointOfSale.CustomizationScreens
 {
     /// <summary>
-    /// Interaction logic for CowboyCoffeeCustomization.xaml
+    /// Interaction logic for CornDodgersCustomization.xaml
     /// </summary>
-    public partial class CowboyCoffeeCustomization : UserControl
+    public partial class CornDodgersCustomization : UserControl
     {
-        public CowboyCoffeeCustomization()
+        public CornDodgersCustomization()
         {
             InitializeComponent();
         }
 
         private void SmallButton_Click(object sender, RoutedEventArgs e)
         {
-            CowboyCoffee c = (CowboyCoffee)DataContext;
+            CornDodgers c = (CornDodgers)DataContext;
             c.Size = CowboyCafe.Data.Size.Small;
         }
 
         private void MediumButton_Click(object sender, RoutedEventArgs e)
         {
-            CowboyCoffee c = (CowboyCoffee)DataContext;
+            CornDodgers c = (CornDodgers)DataContext;
             c.Size = CowboyCafe.Data.Size.Medium;
         }
 
         private void LargeButton_Click(object sender, RoutedEventArgs e)
         {
-            CowboyCoffee c = (CowboyCoffee)DataContext;
+            CornDodgers c = (CornDodgers)DataContext;
             c.Size = CowboyCafe.Data.Size.Large;
         }
     }

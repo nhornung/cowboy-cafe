@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -15,8 +16,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class to represent water object
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Price of the water
         /// </summary>
@@ -39,13 +45,49 @@ namespace CowboyCafe.Data
             }
         }
 
+        private Size size = Size.Small;
+        /// <summary>
+        /// Determines the size of water from the enum and updates property
+        /// </summary>
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool lemon = false;
         /// <summary>
         /// If the water has a lemon
         /// </summary>
         public bool Lemon
         {
-            get;
-            set;
+            get { return lemon; }
+            set
+            {              
+                lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));   
+            }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// If the water has ice
+        /// </summary>
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>

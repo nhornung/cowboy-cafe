@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -15,8 +16,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Corn Dodgers side
     /// </summary>
-    public class CornDodgers : Side
+    public class CornDodgers : Side, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets value of the calories associated with size enum
         /// </summary>
@@ -57,6 +63,21 @@ namespace CowboyCafe.Data
                         throw new NotImplementedException("Unknown Price");
 
                 }
+            }
+        }
+
+        private Size size = Size.Small;
+        /// <summary>
+        /// Determines the size of dodgers from the enum and updates property
+        /// </summary>
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

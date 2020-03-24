@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -15,8 +16,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class representing the Jerked Soda object
     /// </summary>
-    public class JerkedSoda : Drink
+    public class JerkedSoda : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Price of the soda based on the size
         /// </summary>
@@ -59,13 +65,49 @@ namespace CowboyCafe.Data
             }
         }
 
+        private Size size = Size.Small;
+        /// <summary>
+        /// Determines the size of soda from the enum and updates property
+        /// </summary>
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// If the soda has ice, false by default
+        /// </summary>
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private SodaFlavor flavor = SodaFlavor.CreamSoda;
         /// <summary>
         /// Determines the flavor of soda from the enum
         /// </summary>
         public SodaFlavor Flavor
         {
-            get;
-            set;
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>

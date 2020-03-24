@@ -6,10 +6,18 @@
              xmlns:local="clr-namespace:PointOfSale.CustomizationScreens"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
+    
     <StackPanel>
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="Goldenrod" TextDecorations="Underline">Cowpoke Chili Customization!</TextBlock>
+        <TextBlock FontSize="27" HorizontalAlignment="Center" Foreground="Goldenrod" TextDecorations="Underline">Texas Triple Customization!</TextBlock>
         <StackPanel Orientation="Vertical">
 
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="Goldenrod" />
+                    <Setter Property="FontSize" Value="15" />
+                </Style>
+            </StackPanel.Resources>
+            
             <CheckBox IsChecked="{Binding Path=Bun}">
                 <TextBlock Text="Bun"/>
             </CheckBox>

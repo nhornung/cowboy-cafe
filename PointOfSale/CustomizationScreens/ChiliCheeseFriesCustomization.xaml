@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.CustomizationScreens.CowboyCoffeeCustomization"
+﻿<UserControl x:Class="PointOfSale.CustomizationScreens.ChiliCheeseFriesCustomization"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,8 @@
              xmlns:local="clr-namespace:PointOfSale.CustomizationScreens"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-    
     <StackPanel>
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="Goldenrod" TextDecorations="Underline">Cowboy Coffee Customization!</TextBlock>
+        <TextBlock FontSize="28" HorizontalAlignment="Center" Foreground="Goldenrod" TextDecorations="Underline">Chili Cheese Fries Customization!</TextBlock>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
 
             <StackPanel.Resources>
@@ -25,19 +24,6 @@
                 </Style>
             </StackPanel.Resources>
             
-            <CheckBox IsChecked="{Binding Path=Decaf}">
-                <TextBlock Text="Decaf"/>
-            </CheckBox>
-
-            <CheckBox IsChecked="{Binding Path=RoomForCream}">
-                <TextBlock Text="Cream"/>
-            </CheckBox>
-
-            <CheckBox IsChecked="{Binding Path=Ice}">
-                <TextBlock Text="Iced"/>
-            </CheckBox>
-
-            <TextBlock/>
             <TextBlock Text="Size"/>
             <Button x:Name="SmallButton" Content="Small" Width="200" Click="SmallButton_Click" />
             <Button x:Name="MediumButton" Content="Medium" Width="200" Click="MediumButton_Click"/>

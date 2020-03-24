@@ -10,6 +10,13 @@
         <TextBlock FontSize="28" HorizontalAlignment="Center" Foreground="Goldenrod" TextDecorations="Underline">Pecos Pulled Pork Customization!</TextBlock>
         <StackPanel Orientation="Vertical">
 
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="Goldenrod" />
+                    <Setter Property="FontSize" Value="15" />
+                </Style>
+            </StackPanel.Resources>
+            
             <CheckBox IsChecked="{Binding Path=Bread}">
                 <TextBlock Text="Bread"/>
             </CheckBox>

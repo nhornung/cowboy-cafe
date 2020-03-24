@@ -15,31 +15,31 @@ using CowboyCafe.Data;
 namespace PointOfSale.CustomizationScreens
 {
     /// <summary>
-    /// Interaction logic for CowboyCoffeeCustomization.xaml
+    /// Interaction logic for WaterCustomization.xaml
     /// </summary>
-    public partial class CowboyCoffeeCustomization : UserControl
+    public partial class WaterCustomization : UserControl
     {
-        public CowboyCoffeeCustomization()
+        public WaterCustomization()
         {
             InitializeComponent();
         }
 
         private void SmallButton_Click(object sender, RoutedEventArgs e)
         {
-            CowboyCoffee c = (CowboyCoffee)DataContext;
-            c.Size = CowboyCafe.Data.Size.Small;
+            Water w = (Water)DataContext;
+            w.Size = CowboyCafe.Data.Size.Small;
         }
 
         private void MediumButton_Click(object sender, RoutedEventArgs e)
         {
-            CowboyCoffee c = (CowboyCoffee)DataContext;
-            c.Size = CowboyCafe.Data.Size.Medium;
+            Water w = (Water)DataContext;
+            w.Size = CowboyCafe.Data.Size.Medium;
         }
 
         private void LargeButton_Click(object sender, RoutedEventArgs e)
         {
-            CowboyCoffee c = (CowboyCoffee)DataContext;
-            c.Size = CowboyCafe.Data.Size.Large;
+            Water w = (Water)DataContext;
+            w.Size = CowboyCafe.Data.Size.Large;
         }
     }
 }
