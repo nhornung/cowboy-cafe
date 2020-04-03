@@ -19,6 +19,7 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class CowboyCoffeeCustomization : UserControl
     {
+
         public CowboyCoffeeCustomization()
         {
             InitializeComponent();

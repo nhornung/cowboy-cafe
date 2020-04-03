@@ -19,6 +19,7 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class JerkedSodaCustomization : UserControl
     {
+
         public JerkedSodaCustomization()
         {
             InitializeComponent();

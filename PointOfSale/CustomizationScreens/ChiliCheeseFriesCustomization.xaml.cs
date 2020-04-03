@@ -19,6 +19,7 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class ChiliCheeseFriesCustomization : UserControl
     {
+
         public ChiliCheeseFriesCustomization()
         {
             InitializeComponent();

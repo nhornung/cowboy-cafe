@@ -16,12 +16,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Pan De Campo side
     /// </summary>
-    public class PanDeCampo : Side, INotifyPropertyChanged
+    public class PanDeCampo : Side
     {
-        /// <summary>
-        /// Property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+
 
         /// <summary>
         /// Gets value of the calories associated with size enum
@@ -63,21 +60,6 @@ namespace CowboyCafe.Data
                         throw new NotImplementedException("Unknown Price");
 
                 }
-            }
-        }
-
-        private Size size = Size.Small;
-        /// <summary>
-        /// Determines the size of Pan from the enum and updates property
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set
-            {
-                size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

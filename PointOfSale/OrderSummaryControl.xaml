@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="450">
+             d:DesignHeight="600" d:DesignWidth="650">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -25,11 +25,10 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="375"/>
-                <ColumnDefinition Width="75"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="ItemsList" Grid.Column="0" ItemsSource="{Binding Path=Items}" Background="Transparent" BorderBrush="Transparent">
+            <ListBox x:Name="ItemsList" Grid.Column="0" ItemsSource="{Binding Path=Items}" Background="Transparent" BorderBrush="Transparent" SelectionChanged="ItemsList_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -38,33 +37,22 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+
                             <Grid Grid.Row="0">
-                                <TextBlock Text="{Binding}" FontSize="17" Foreground="Goldenrod" HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding}" FontSize="17" Foreground="Goldenrod" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                                    <Button x:Name="DeleteItem" Content="X" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom" VerticalContentAlignment="Top" Click="DeleteItem_Click"/>
+                                </TextBlock>
                             </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="125"/>
-                                    <ColumnDefinition Width="25"/>
-                                </Grid.ColumnDefinitions>
 
-                                <ListBox x:Name="Special" Width="100" HorizontalAlignment="Left" Grid.Column="0" ItemsSource="{Binding Path=SpecialInstructions}" Background="Transparent" Foreground="Goldenrod" BorderBrush="#8d0202">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding}" FontSize="10" Foreground="Goldenrod" HorizontalAlignment="Left"/>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Price}" Foreground="Goldenrod" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                       
+                            <ListBox x:Name="Special" Width="125" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=SpecialInstructions}" Background="Transparent" Foreground="Goldenrod" BorderBrush="#8d0202"/>
+                          
                         </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <ListBox x:Name="PriceList" Grid.Column="1" Background="Transparent" Foreground="Goldenrod" ItemsSource="{Binding Path=Price}" BorderBrush="Transparent">
-                <!-- Im super confused why the dollar sign and second decimal doesn't show up on this string format, its the same one as the subtotal (c) -->
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding}" Foreground="Goldenrod" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

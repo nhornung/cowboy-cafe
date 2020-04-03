@@ -21,6 +21,7 @@
                     <Setter Property="Background" Value="#8d0202"/>
                     <Setter Property="BorderBrush" Value="Goldenrod"/>
                     <Setter Property="FontSize" Value="15" />
+                    <Setter Property="Height" Value="75"/>
                 </Style>
             </StackPanel.Resources>
             

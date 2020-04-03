@@ -16,12 +16,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Baked Beans side
     /// </summary>
-    public class BakedBeans : Side, INotifyPropertyChanged
+    public class BakedBeans : Side
     {
-        /// <summary>
-        /// Property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets value of the calories associated with size enum
@@ -66,20 +62,6 @@ namespace CowboyCafe.Data
             }
         }
 
-        private Size size = Size.Small;
-        /// <summary>
-        /// Determines the size of the beans and updates the property
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set
-            {
-                size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-            }
-        }
 
         /// <summary>
         /// Creates string for item to put on order list

@@ -19,6 +19,7 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class WaterCustomization : UserControl
     {
+
         public WaterCustomization()
         {
             InitializeComponent();

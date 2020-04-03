@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -15,12 +16,30 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// Property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size;
         /// <summary>
         /// Get the size of the drink but set the default to small
         /// </summary>
-        public Size Size { get; set; } = Size.Small; // check this one
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                NotifyPropertyChanged("Price");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// Get the price of the drink
@@ -50,5 +69,11 @@ namespace CowboyCafe.Data
         {
             get;
         }
+
+        protected void NotifyPropertyChanged(string s)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(s));
+        }
+
     }
 }

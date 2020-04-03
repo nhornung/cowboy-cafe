@@ -8,22 +8,38 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
+
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Side : IOrderItem
+    public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
+
         /// <summary>
-        /// Gets the size of the side
+        /// Property changed event
         /// </summary>
-        public virtual Size Size
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size = Size.Small;
+        /// <summary>
+        /// Determines the size of the beans and updates the property
+        /// </summary>
+        public Size Size
         {
-            get;
-            set;
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>

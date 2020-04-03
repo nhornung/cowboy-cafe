@@ -48,7 +48,7 @@ namespace CowboyCafe.Data
         {
             get;
             set;
-        } = 0;
+        }
 
         /// <summary>
         /// Property for the current order number
@@ -86,6 +86,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
 
         /// <summary>
@@ -97,12 +98,13 @@ namespace CowboyCafe.Data
             items.Remove(item);
             priceList.Remove(item.Price);
 
-            if (item is INotifyPropertyChanged pcitem) { pcitem.PropertyChanged += OnItemChanged; } // need to do this on every item and iorder interface do not leave this if in code
+            if (item is INotifyPropertyChanged pcitem) { pcitem.PropertyChanged -= OnItemChanged; } // need to do this on every item and iorder interface do not leave this if in code
 
             SubTotal -= item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
 
         private void OnItemChanged(object sender, PropertyChangedEventArgs e)

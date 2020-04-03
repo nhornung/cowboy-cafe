@@ -16,12 +16,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Chili Cheese Fries side
     /// </summary>
-    public class ChiliCheeseFries : Side, INotifyPropertyChanged
+    public class ChiliCheeseFries : Side
     {
-        /// <summary>
-        /// Property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+
 
         /// <summary>
         /// Gets value of the calories associated with size enum
@@ -66,20 +63,6 @@ namespace CowboyCafe.Data
             }
         }
 
-        private Size size = Size.Small;
-        /// <summary>
-        /// Determines the size of fries from the enum
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set
-            {
-                size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-            }
-        }
 
         /// <summary>
         /// Creates string for item to put on order list

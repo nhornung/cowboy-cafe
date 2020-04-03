@@ -16,13 +16,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class representing the Jerked Soda object
     /// </summary>
-    public class JerkedSoda : Drink, INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
+    public class JerkedSoda : Drink { 
         /// <summary>
         /// Price of the soda based on the size
         /// </summary>
@@ -65,21 +59,6 @@ namespace CowboyCafe.Data
             }
         }
 
-        private Size size = Size.Small;
-        /// <summary>
-        /// Determines the size of soda from the enum and updates property
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set
-            {
-                size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-            }
-        }
-
         private bool ice = true;
         /// <summary>
         /// If the soda has ice, false by default
@@ -90,8 +69,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Ice");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -105,8 +84,8 @@ namespace CowboyCafe.Data
             set
             {
                 flavor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Flavor");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
 

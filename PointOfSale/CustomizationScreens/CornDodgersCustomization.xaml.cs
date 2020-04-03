@@ -19,8 +19,9 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class CornDodgersCustomization : UserControl
     {
+
         public CornDodgersCustomization()
-        {
+        {           
             InitializeComponent();
         }
 
