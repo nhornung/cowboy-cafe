@@ -42,6 +42,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void CancelOrderButtonClick(object sender, RoutedEventArgs e)
         {
+            Container.Child = new MenuItemSelectionControl();
             this.DataContext = new Order();
         }
 
@@ -52,7 +53,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void CompleteOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+            var screen = new TransactionControl();
+            SwapScreen(screen);
         }
 
         public void ItemSelectionButtonClicked(object sender, RoutedEventArgs e)

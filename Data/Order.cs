@@ -50,6 +50,15 @@ namespace CowboyCafe.Data
             set;
         }
 
+        public double FinalTotal
+        {
+            get { return SubTotal; }
+            set
+            {
+                FinalTotal = SubTotal + (SubTotal * 0.16);
+            }
+        }
+
         /// <summary>
         /// Property for the current order number
         /// </summary>
