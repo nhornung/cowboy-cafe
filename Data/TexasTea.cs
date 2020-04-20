@@ -82,20 +82,6 @@ namespace CowboyCafe.Data
             }
         }
 
-        private Size size = Size.Small;
-        /// <summary>
-        /// Determines the size of tea from the enum and updates property
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set
-            {
-                size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-            }
-        }
 
         private bool ice = true;
         /// <summary>

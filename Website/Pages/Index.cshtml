@@ -1,15 +1,93 @@
 ﻿@page
 @model IndexModel
+@using CowboyCafe.Data;
 @{
-    ViewData["Title"] = "Home page";
-    throw new Exception("Test...");    
+    ViewData["Title"] = "Home";
+    // throw new Exception("Test...");
     // uncomment and switch to website production to test error page ^^^^
 }
 
+<!-- Sets backgorund color -->
+<style>
+    body {
+        background-color: antiquewhite;
+    }
+</style>
+
+<!-- Welcome message (I didn't understand how it said to have welcome message and cowboy cafe headers, so I combined them) -->
 <div class="text-center">
-    <h1 class="display-4">Welcome to Cowboy Cafe!</h1>
-    <p>We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-    Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
-    Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
-    You’ve had a hard ride - so take it easy with us.</p>
+    <h1 class="welcome-m">Welcome to Cowboy Cafe!</h1>
+    <p>
+        We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+        Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+        Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
+        You’ve had a hard ride - so take it easy with us.
+    </p>
 </div>
+
+<!-- Lists each entree item by looping through the list found in the menu class -->
+<h2>Entrees</h2>
+<ul class="entree-list">
+    @foreach (IOrderItem i in Menu.Entrees())
+    {
+        <div class="entree-item">
+            <div class="entree-details">
+                <h5 class="EntreeName">@i.ToString()</h5>
+                <h7 class="EntreePrice">Price: @i.Price.ToString("c")</h7>
+                <h7 class="EntreeCalories">Calories: @i.Calories</h7>
+                <p>----------------------------</p>
+            </div>
+        </div>
+    }
+</ul>
+
+<!-- Lists each side item by looping through the list found in the menu class -->
+<h2>Sides</h2>
+<ul class="side-list">
+    @foreach (IOrderItem j in Menu.Sides())
+    {
+        <div class="side-item">
+            @if (j is Side s)
+            {
+                <h5 class="SideName">@j.ToString()</h5>
+                <h7 class="SidePrice">Price: @j.Price.ToString("c")</h7>
+                <h7 class="SideCalories">Calories: @j.Calories</h7>
+                s.Size = Size.Medium;
+                <h5 class="SideName">@j.ToString()</h5>
+                <h7 class="SidePrice">Price: @j.Price.ToString("c")</h7>
+                <h7 class="SideCalories">Calories: @j.Calories</h7>
+                s.Size = Size.Large;
+                <h5 class="SideName">@j.ToString()</h5>
+                <h7 class="SidePrice">Price: @j.Price.ToString("c")</h7>
+                <h7 class="SideCalories">Calories: @j.Calories</h7>
+                <p>----------------------------</p>
+            }
+        </div>
+    }
+</ul>
+
+<!-- Lists each drinkitem by looping through the list found in the menu class -->
+<h2>Drinks</h2>
+<ul class="drink-list">
+    @foreach (IOrderItem k in Menu.Drinks())
+    {
+        <div class="drink-item">
+            @if (k is Drink d)
+            {
+                <h5 class="DrinkName">@k.ToString()</h5>
+                <h7 class="DrinkPrice">Price: @k.Price.ToString("c")</h7>
+                <h7 class="DrinkCalories">Calories: @k.Calories</h7>
+                d.Size = Size.Medium;
+                <h5 class="DrinkName">@k.ToString()</h5>
+                <h7 class="DrinkPrice">Price: @k.Price.ToString("c")</h7>
+                <h7 class="DrinkCalories">Calories: @k.Calories</h7>
+                d.Size = Size.Large;
+                <h5 class="DrinkName">@k.ToString()</h5>
+                <h7 class="DrinkPrice">Price: @k.Price.ToString("c")</h7>
+                <h7 class="DrinkCalories">Calories: @k.Calories</h7>
+                <p>----------------------------</p>
+            }
+        </div>
+    }
+</ul>
+

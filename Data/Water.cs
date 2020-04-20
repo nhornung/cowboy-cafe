@@ -45,6 +45,7 @@ namespace CowboyCafe.Data
             }
         }
 
+        /*
         private Size size = Size.Small;
         /// <summary>
         /// Determines the size of water from the enum and updates property
@@ -59,6 +60,7 @@ namespace CowboyCafe.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
+        */
 
         private bool lemon = false;
         /// <summary>
