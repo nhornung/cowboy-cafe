@@ -16,12 +16,12 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class representing the Texas Tea drink
     /// </summary>
-    public class TexasTea : Drink, INotifyPropertyChanged
+    public class TexasTea : Drink
     {
         /// <summary>
         /// Property changed event
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets value of the price associated with each size in the enum
@@ -93,8 +93,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Ice");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -108,8 +108,8 @@ namespace CowboyCafe.Data
             set
             {
                 sweet = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Sweet");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         } 
 
@@ -123,8 +123,8 @@ namespace CowboyCafe.Data
             set
             {
                 lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Lemon");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
 

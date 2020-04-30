@@ -16,12 +16,12 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class to represent water object
     /// </summary>
-    public class Water : Drink, INotifyPropertyChanged
+    public class Water : Drink
     {
         /// <summary>
         /// Property changed event
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Price of the water
@@ -72,8 +72,8 @@ namespace CowboyCafe.Data
             set
             {              
                 lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));   
+                NotifyPropertyChanged("Lemon");
+                NotifyPropertyChanged("SpecialInstructions");   
             }
         }
 
@@ -87,8 +87,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Ice");
+                NotifyPropertyChanged("SpecialInstructions");  
             }
         }
 

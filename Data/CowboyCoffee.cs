@@ -16,12 +16,12 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Class to represent the Cowboy Coffee object
     /// </summary>
-    public class CowboyCoffee : Drink, INotifyPropertyChanged
+    public class CowboyCoffee : Drink
     {
         /// <summary>
         /// Property changed event
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The value of the price based on the size
@@ -76,8 +76,8 @@ namespace CowboyCafe.Data
             set
             {
                 decaf = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Decaf");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -91,8 +91,8 @@ namespace CowboyCafe.Data
             set
             {
                 cream = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cream"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Cream");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -106,8 +106,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyPropertyChanged("Ice");
+                NotifyPropertyChanged("SpecialInstructions");
             }
         }
 

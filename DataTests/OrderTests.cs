@@ -12,6 +12,8 @@ namespace CowboyCafe.DataTests
         {
             public double Price { get; set; }
             public List<string> SpecialInstructions { get; set; }
+
+            public uint Calories { get; set; }
         }
 
 
@@ -35,7 +37,7 @@ namespace CowboyCafe.DataTests
             Assert.DoesNotContain(item, order.Items);
         }
 
-
+        [Fact]
         public void ShouldBeAbleToGetAnEnumerationOfItems()
         {
             var order = new Order();

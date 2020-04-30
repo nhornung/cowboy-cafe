@@ -14,6 +14,7 @@
     }
 </style>
 
+
 <!-- Welcome message (I didn't understand how it said to have welcome message and cowboy cafe headers, so I combined them) -->
 <div class="text-center">
     <h1 class="welcome-m">Welcome to Cowboy Cafe!</h1>
@@ -25,69 +26,101 @@
     </p>
 </div>
 
-<!-- Lists each entree item by looping through the list found in the menu class -->
-<h2>Entrees</h2>
-<ul class="entree-list">
-    @foreach (IOrderItem i in Menu.Entrees())
+<p></p>
+
+<form id="menu-database">
+    <div id="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search" />
+    </div>
+
+    <div id="filters">
+        <h5>Category:</h5>
+        @foreach (String category in Menu.Categories)
+        {
+            <label>
+                <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" /> 
+                @category
+            </label>
+        }
+
+        <div>
+            <h5>Calories:</h5>
+            between
+            <input type="number" name="caloriesMin" min="0" max="1000" step="10" placeholder="Min" value="@Model.CaloriesMin" />
+            and
+            <input type="number" name="caloriesMax" min="0" max="1000" step="10" placeholder="Max" value="@Model.CaloriesMax" />
+        </div>
+
+
+        <div>
+            <h5>Price:</h5>
+            between
+            <input type="number" name="priceMin" min="0" max="1000" step=".1" placeholder="Min" value="@Model.PriceMin" />
+            and
+            <input type="number" name="priceMax" min="0" max="1000" step=".1" placeholder="Max" value="@Model.PriceMax" />
+        </div>
+    </div>
+
+</form>
+<p></p>
+
+<!--<h1><u>Menu</u></h1>-->
+<div id="results">
+    <!-- Lists each entree item by looping through the list found in the menu class -->
+    <h2 style="text-decoration:underline">Entrees</h2>
+
+    @foreach (IOrderItem i in Model.items)
     {
-        <div class="entree-item">
-            <div class="entree-details">
+        if (i is Entree e)
+        {
+            <div class="entree-item">
                 <h5 class="EntreeName">@i.ToString()</h5>
-                <h7 class="EntreePrice">Price: @i.Price.ToString("c")</h7>
-                <h7 class="EntreeCalories">Calories: @i.Calories</h7>
-                <p>----------------------------</p>
+                <ul style="list-style-type:square">
+                    <li class="EntreePrice">Price: @i.Price.ToString("c")</li>
+                    <li class="EntreeCalories">Calories: @i.Calories</li>
+                </ul>
+                <p>----------------------------------------</p>
             </div>
-        </div>
-    }
-</ul>
+        }
 
-<!-- Lists each side item by looping through the list found in the menu class -->
-<h2>Sides</h2>
-<ul class="side-list">
-    @foreach (IOrderItem j in Menu.Sides())
-    {
-        <div class="side-item">
-            @if (j is Side s)
-            {
-                <h5 class="SideName">@j.ToString()</h5>
-                <h7 class="SidePrice">Price: @j.Price.ToString("c")</h7>
-                <h7 class="SideCalories">Calories: @j.Calories</h7>
-                s.Size = Size.Medium;
-                <h5 class="SideName">@j.ToString()</h5>
-                <h7 class="SidePrice">Price: @j.Price.ToString("c")</h7>
-                <h7 class="SideCalories">Calories: @j.Calories</h7>
-                s.Size = Size.Large;
-                <h5 class="SideName">@j.ToString()</h5>
-                <h7 class="SidePrice">Price: @j.Price.ToString("c")</h7>
-                <h7 class="SideCalories">Calories: @j.Calories</h7>
-                <p>----------------------------</p>
-            }
-        </div>
     }
-</ul>
 
-<!-- Lists each drinkitem by looping through the list found in the menu class -->
-<h2>Drinks</h2>
-<ul class="drink-list">
-    @foreach (IOrderItem k in Menu.Drinks())
+
+    <!-- Lists each side item by looping through the list found in the menu class -->
+    <h2 style="text-decoration:underline">Sides</h2>
+    @foreach (IOrderItem i in Model.items)
     {
-        <div class="drink-item">
-            @if (k is Drink d)
-            {
-                <h5 class="DrinkName">@k.ToString()</h5>
-                <h7 class="DrinkPrice">Price: @k.Price.ToString("c")</h7>
-                <h7 class="DrinkCalories">Calories: @k.Calories</h7>
-                d.Size = Size.Medium;
-                <h5 class="DrinkName">@k.ToString()</h5>
-                <h7 class="DrinkPrice">Price: @k.Price.ToString("c")</h7>
-                <h7 class="DrinkCalories">Calories: @k.Calories</h7>
-                d.Size = Size.Large;
-                <h5 class="DrinkName">@k.ToString()</h5>
-                <h7 class="DrinkPrice">Price: @k.Price.ToString("c")</h7>
-                <h7 class="DrinkCalories">Calories: @k.Calories</h7>
-                <p>----------------------------</p>
-            }
-        </div>
+        if (i is Side s)
+        {
+            <div class="side-item">
+                <h5 class="SideName">@i.ToString()</h5>
+                <ul style="list-style-type:square">
+                    <li class="SidePrice">Price: @i.Price.ToString("c")</li>
+                    <li class="SideCalories">Calories: @i.Calories</li>
+                </ul>             
+                <p>----------------------------------------</p>
+            </div>
+        }
     }
-</ul>
+
+
+    <!-- Lists each drinkitem by looping through the list found in the menu class -->
+    <h2 style="text-decoration:underline">Drinks</h2>
+    @foreach (IOrderItem i in Model.items)
+    {
+        if (i is Drink d)
+        {
+            <div class="drink-item">
+                <h5 class="DrinkName">@i.ToString()</h5>
+                <ul style="list-style-type:square">
+                    <li class="DrinkPrice">Price: @i.Price.ToString("c")</li>
+                    <li class="DrinkCalories">Calories: @i.Calories</li>
+                </ul>
+                <p>----------------------------------------</p>
+            </div>
+        }
+    }
+
+</div>
 
