@@ -69,3 +69,21 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/**********************************************************************************************/
+
+.results {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 490px) {
+    .results {
+        flex-direction: column;
+    }
+}
+
+.flavor-list {
+    font-weight: normal;
+}

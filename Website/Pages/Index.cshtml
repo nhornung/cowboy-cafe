@@ -28,6 +28,7 @@
 
 <p></p>
 
+<!--Form to hold all search and filter funcionatlity-->
 <form id="menu-database">
     <div id="search">
         <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
@@ -65,62 +66,75 @@
 </form>
 <p></p>
 
-<!--<h1><u>Menu</u></h1>-->
-<div id="results">
+
+<div class="results">
+
     <!-- Lists each entree item by looping through the list found in the menu class -->
-    <h2 style="text-decoration:underline">Entrees</h2>
-
-    @foreach (IOrderItem i in Model.items)
-    {
-        if (i is Entree e)
+    <div id="entree-list">
+        <h2 style="text-decoration:underline">Entrees</h2>
+        @foreach (IOrderItem i in Model.items)
         {
-            <div class="entree-item">
-                <h5 class="EntreeName">@i.ToString()</h5>
-                <ul style="list-style-type:square">
-                    <li class="EntreePrice">Price: @i.Price.ToString("c")</li>
-                    <li class="EntreeCalories">Calories: @i.Calories</li>
-                </ul>
-                <p>----------------------------------------</p>
-            </div>
+            if (i is Entree e)
+            {
+                <div class="entree-item">
+                    <h5 class="EntreeName">@i.ToString()</h5>
+                    <ul style="list-style-type:square">
+                        <li class="EntreePrice">Price: @i.Price.ToString("c")</li>
+                        <li class="EntreeCalories">Calories: @i.Calories</li>
+                    </ul>
+                    <p>-------------------------</p>
+                </div>
+            }
         }
-
-    }
-
+    </div>
 
     <!-- Lists each side item by looping through the list found in the menu class -->
-    <h2 style="text-decoration:underline">Sides</h2>
-    @foreach (IOrderItem i in Model.items)
-    {
-        if (i is Side s)
+    <div id="side-list">
+        <h2 style="text-decoration:underline">Sides</h2>
+        @foreach (IOrderItem i in Model.items)
         {
-            <div class="side-item">
-                <h5 class="SideName">@i.ToString()</h5>
-                <ul style="list-style-type:square">
-                    <li class="SidePrice">Price: @i.Price.ToString("c")</li>
-                    <li class="SideCalories">Calories: @i.Calories</li>
-                </ul>             
-                <p>----------------------------------------</p>
-            </div>
+            if (i is Side s)
+            {
+                <div class="side-item">
+                    <h5 class="SideName">@i.ToString()</h5>
+                    <ul style="list-style-type:square">
+                        <li class="SidePrice">Price: @i.Price.ToString("c")</li>
+                        <li class="SideCalories">Calories: @i.Calories</li>
+                    </ul>
+                    <p>-------------------------</p>
+                </div>
+            }
         }
-    }
-
+    </div>
 
     <!-- Lists each drinkitem by looping through the list found in the menu class -->
-    <h2 style="text-decoration:underline">Drinks</h2>
-    @foreach (IOrderItem i in Model.items)
-    {
-        if (i is Drink d)
+    <div id="drink-list">
+        <h2 style="text-decoration:underline">Drinks</h2>
+        @foreach (IOrderItem i in Model.items)
         {
-            <div class="drink-item">
-                <h5 class="DrinkName">@i.ToString()</h5>
-                <ul style="list-style-type:square">
-                    <li class="DrinkPrice">Price: @i.Price.ToString("c")</li>
-                    <li class="DrinkCalories">Calories: @i.Calories</li>
-                </ul>
-                <p>----------------------------------------</p>
-            </div>
+            if (i is Drink d)
+            {
+                <div class="drink-item">
+                    <h5 class="DrinkName">@i.ToString()</h5>
+                    
+                    <ul style="list-style-type:square">
+                        <li class="DrinkPrice">Price: @i.Price.ToString("c")</li>
+                        <li class="DrinkCalories">Calories: @i.Calories</li>
+                    </ul>
+                    @if (i is JerkedSoda j)
+                    {
+                        <div class="flavor-list">
+                            <h7>
+                                Flavors:
+                                @SodaFlavor.BirchBeer.ToString(), @SodaFlavor.CreamSoda.ToString(), @SodaFlavor.Sarsparilla.ToString(), @SodaFlavor.RootBeer.ToString(), @SodaFlavor.OrangeSoda.ToString();
+                            </h7>
+                        </div>
+                    }
+                    <p>-------------------------</p>
+                </div>
+            }
         }
-    }
+    </div>
 
 </div>
 
